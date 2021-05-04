@@ -1,21 +1,22 @@
 package team.dataart.helpers;
 
-import com.codeborne.selenide.Configuration;
-import team.dataart.config.DriverConfig;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import team.dataart.config.DriverConfig;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.codeborne.selenide.Configuration.*;
 import static com.codeborne.selenide.Selenide.getWebDriverLogs;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
 import static java.lang.String.join;
 import static org.openqa.selenium.logging.LogType.BROWSER;
+import static team.dataart.tests.TestData.getWebUrl;
 
 public class DriverHelper {
 
@@ -30,7 +31,6 @@ public class DriverHelper {
     public static boolean isWebMobile() {
         return !getWebMobile().equals("");
     }
-
 
     public static String getWebRemoteDriver() {
         // https://%s:%s@selenoid.autotests.cloud/wd/hub/
@@ -62,10 +62,10 @@ public class DriverHelper {
     public static void configureDriver() {
         addListener("AllureSelenide", new AllureSelenide());
 
-//        Configuration.baseUrl = TestData.getWebUrl();
-        Configuration.browser = getDriverConfig().webBrowser();
-        Configuration.browserVersion = getDriverConfig().webBrowserVersion();
-        Configuration.browserSize = getDriverConfig().webBrowserSize();
+        baseUrl = getWebUrl();
+        browser = getDriverConfig().webBrowser();
+        browserVersion = getDriverConfig().webBrowserVersion();
+        browserSize = getDriverConfig().webBrowserSize();
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
@@ -80,9 +80,9 @@ public class DriverHelper {
         if (isRemoteWebDriver()) {
             capabilities.setCapability("enableVNC", true);
             capabilities.setCapability("enableVideo", true);
-            Configuration.remote = getWebRemoteDriver();
+            remote = getWebRemoteDriver();
         }
 
-        Configuration.browserCapabilities = capabilities;
+        browserCapabilities = capabilities;
     }
 }

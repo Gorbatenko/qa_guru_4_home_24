@@ -1,6 +1,7 @@
 package team.dataart.tests;
 
 import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.BeforeEach;
@@ -9,6 +10,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static team.dataart.tests.TestData.getWebUrl;
@@ -23,6 +25,7 @@ public class MainPageTests extends TestBase {
     void openUrl() {
         step("Open url " + getWebUrl(), () -> {
             open(getWebUrl());
+            $(byText("Больше о компании")).scrollTo();
         });
     }
 
@@ -80,13 +83,11 @@ public class MainPageTests extends TestBase {
     void checkThatEmptyVacanciesListHasDefaultText() {
         String technology = "QA";
         String industry = "Ставки и игорный бизнес";
-        String location = "София";
+        String location = "Харьков";
 
         step("Select technology", () -> {
-            step("Select technology", () -> {
-                $("#customSelect__technology").click();
-                $$(".isOpen .customSelect__option").findBy(text(technology)).click();
-            });
+            $("#customSelect__technology").click();
+            $$(".isOpen .customSelect__option").findBy(text(technology)).click();
         });
 
         step("Select industry", () -> {
@@ -100,8 +101,9 @@ public class MainPageTests extends TestBase {
         });
 
         step("Check default text", () -> {
-            $(".vacanciesWidget__error").shouldHave(text("По вашему запросу ничего не найдено"));
-            $(".vacanciesWidget__error").shouldHave(text("Убедитесь, что все слова написаны без ошибок, или попробуйте использовать другие ключевые слова"));
+            SelenideElement errorMessage = $(".vacanciesWidget__error");
+            errorMessage.shouldHave(text("По вашему запросу ничего не найдено"));
+            errorMessage.shouldHave(text("Убедитесь, что все слова написаны без ошибок, или попробуйте использовать другие ключевые слова"));
         });
     }
 }

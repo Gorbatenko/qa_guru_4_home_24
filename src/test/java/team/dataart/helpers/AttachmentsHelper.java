@@ -21,7 +21,6 @@ import static io.qameta.allure.Allure.addAttachment;
 public class AttachmentsHelper {
     private static final Logger LOG = LoggerFactory.getLogger(AttachmentsHelper.class);
 
-
     @Attachment(value = "{attachName}", type = "text/plain")
     public static String attachAsText(String attachName, String message) {
         return message;
@@ -41,7 +40,7 @@ public class AttachmentsHelper {
         URL videoUrl = getVideoUrl(sessionId);
         if (videoUrl != null) {
             InputStream videoInputStream = null;
-            sleep(1000);
+            sleep(2000);
 
             for (int i = 0; i < 10; i++) {
                 try {
