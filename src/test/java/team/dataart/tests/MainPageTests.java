@@ -1,17 +1,23 @@
 package team.dataart.tests;
 
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.ElementsCollection;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static team.dataart.tests.TestData.getWebUrl;
+import static team.dataart.utils.Randomizer.randomValueFromVariant;
 
-@Feature("Main page tests")
+@Tag("ui")
 @Owner("GorbatenkoVA")
+@Feature("Main page tests")
 public class MainPageTests extends TestBase {
 
     @BeforeEach
@@ -24,12 +30,16 @@ public class MainPageTests extends TestBase {
     @Test
     @DisplayName("Filter vacancies by technology is work")
     void checkTechnologyFilter() {
+        String technology = randomValueFromVariant(".Net", "QA", "JavaScript", "Java", "DevOps", "Ruby");
+
         step("Select technology", () -> {
-            // todo
+            $("#customSelect__technology").click();
+            $$(".isOpen .customSelect__option").findBy(text(technology)).click();
         });
 
         step("Check vacancy technology", () -> {
-            // todo
+            ElementsCollection allVacancies = $$(".vacanciesWidget__list-item");
+            allVacancies.filter(text(technology)).shouldHaveSize(allVacancies.size());
         });
     }
 
@@ -58,7 +68,7 @@ public class MainPageTests extends TestBase {
     }
 
     @Test
-    @DisplayName("Filter vacancies by location is work")
+    @DisplayName("Empty vacancies list has default text")
     void checkThatEmptyVacanciesListHasDefaultText() {
         step("Select technology", () -> {
             // todo QA
