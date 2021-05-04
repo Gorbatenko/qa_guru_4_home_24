@@ -1,4 +1,4 @@
-package cloud.autotests.config;
+package team.dataart.config;
 
 import org.aeonbits.owner.Config;
 

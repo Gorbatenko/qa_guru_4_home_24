@@ -1,20 +1,20 @@
-package cloud.autotests.tests.demowebshop;
+package team.dataart.tests;
 
-import cloud.autotests.tests.TestBase;
 import com.codeborne.selenide.Configuration;
 import io.qameta.allure.Story;
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.Cookie;
 
-import static cloud.autotests.api.LogFilter.filters;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
+import static team.dataart.api.LogFilter.filters;
 
+@Deprecated
 @Story("Login tests")
 public class LoginTests extends TestBase {
 
@@ -24,6 +24,7 @@ public class LoginTests extends TestBase {
         Configuration.baseUrl = TestData.getWebUrl();
     }
 
+    @Deprecated
     @Test
     @Tag("ui")
     @Disabled("Example test code for further test development")
@@ -44,6 +45,7 @@ public class LoginTests extends TestBase {
                 $(".account").shouldHave(text(TestData.getUserLogin())));
     }
 
+    @Deprecated
     @Test
     @Tag("api")
     @Disabled("Example test code for further test development")

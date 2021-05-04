@@ -1,8 +1,7 @@
-package cloud.autotests.helpers;
+package team.dataart.helpers;
 
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
-import cloud.autotests.config.DriverConfig;
+import team.dataart.config.DriverConfig;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.chrome.ChromeOptions;

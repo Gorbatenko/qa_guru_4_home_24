@@ -1,4 +1,4 @@
-package cloud.autotests.api;
+package team.dataart.api;
 
 import io.qameta.allure.restassured.AllureRestAssured;
 
