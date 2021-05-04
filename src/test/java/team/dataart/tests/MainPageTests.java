@@ -2,6 +2,7 @@ package team.dataart.tests;
 
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -13,13 +14,16 @@ import static team.dataart.tests.TestData.getWebUrl;
 @Owner("GorbatenkoVA")
 public class MainPageTests extends TestBase {
 
-    @Test
-    @DisplayName("Filter vacancies by technology is work")
-    void checkTechnologyFilter() {
+    @BeforeEach
+    void openUrl() {
         step("Open url " + getWebUrl(), () -> {
             open(getWebUrl());
         });
+    }
 
+    @Test
+    @DisplayName("Filter vacancies by technology is work")
+    void checkTechnologyFilter() {
         step("Select technology", () -> {
             // todo
         });
@@ -32,10 +36,6 @@ public class MainPageTests extends TestBase {
     @Test
     @DisplayName("Filter vacancies by industry is work")
     void checkIndustryFilter() {
-        step("Open url " + getWebUrl(), () -> {
-            open(getWebUrl());
-        });
-
         step("Select industry", () -> {
             // todo
         });
@@ -48,10 +48,6 @@ public class MainPageTests extends TestBase {
     @Test
     @DisplayName("Filter vacancies by location is work")
     void checkLocationFilter() {
-        step("Open url " + getWebUrl(), () -> {
-            open(getWebUrl());
-        });
-
         step("Select location", () -> {
             // todo
         });
@@ -64,10 +60,6 @@ public class MainPageTests extends TestBase {
     @Test
     @DisplayName("Filter vacancies by location is work")
     void checkThatEmptyVacanciesListHasDefaultText() {
-        step("Open url " + getWebUrl(), () -> {
-            open(getWebUrl());
-        });
-
         step("Select technology", () -> {
             // todo QA
         });
