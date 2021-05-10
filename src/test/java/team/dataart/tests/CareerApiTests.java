@@ -1,10 +1,8 @@
 package team.dataart.tests;
 
-import io.qameta.allure.Story;
+import io.qameta.allure.Feature;
 import io.restassured.RestAssured;
 import io.restassured.parsing.Parser;
-import io.restassured.response.ExtractableResponse;
-import io.restassured.response.Response;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -12,13 +10,12 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
 import static io.qameta.allure.Allure.parameter;
-import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.containsString;
 import static team.dataart.api.LogFilter.filters;
 
 @Tag("api")
-@Story("Login tests")
+@Feature("Vacancy api tests")
 public class CareerApiTests {
 
     @BeforeAll
