@@ -13,11 +13,4 @@ public interface TestDataConfig extends Config {
 
     @Key("api.url")
     String apiUrl();
-
-    @Key("user.login")
-    String userLogin();
-
-    @Key("user.password")
-    String userPassword();
-
 }

@@ -15,12 +15,4 @@ public class TestData {
     public static String getApiUrl() {
         return getTestData().apiUrl();
     }
-
-    public static String getUserLogin() {
-        return getTestData().userLogin();
-    }
-
-    public static String getUserPassword() {
-        return getTestData().userPassword();
-    }
 }
