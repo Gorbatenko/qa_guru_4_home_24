@@ -15,6 +15,7 @@ import static io.restassured.RestAssured.given;
 import static team.dataart.api.LogFilter.filters;
 
 @Deprecated
+@Tag("api")
 @Story("Login tests")
 public class LoginTests extends TestBase {
 
@@ -26,7 +27,6 @@ public class LoginTests extends TestBase {
 
     @Deprecated
     @Test
-    @Tag("ui")
     @Disabled("Example test code for further test development")
     @DisplayName("Successful authorization to some demowebshop")
     void loginTest() {
@@ -47,7 +47,6 @@ public class LoginTests extends TestBase {
 
     @Deprecated
     @Test
-    @Tag("api")
     @Disabled("Example test code for further test development")
     @DisplayName("Successful authorization with set cookie, received by API")
     void loginWithCookieTest() {
