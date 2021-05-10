@@ -63,7 +63,7 @@ public class CareerPageTest extends TestBase {
     @DisplayName("When uncheck filter vacancies list autoupdated")
     void checkWhenFilterUncheckedThenVacanciesAutoupdated() {
         List<String> randomSpecialisations = randomValuesFromVariant(".NET", "QA", "JavaScript", "Java",
-                                                                        "Design", "DevOps", "Mobile", "Ruby");
+                "Design", "DevOps", "Ruby");
 
         step("Open specialisation menu", () -> {
             $("#vacancy_specialisation").click();
@@ -76,14 +76,15 @@ public class CareerPageTest extends TestBase {
             }
         });
 
-        String firstSpecialisation = $(".job-card__speciality-wrapper").getText();;
+        String firstSpecialisation = $(".job-card__speciality-wrapper").getText();
+        ;
 
         step("Unselect specialisation: '" + firstSpecialisation + "'", () -> {
             $$(".scrollbar-extract li").filter(text(firstSpecialisation))
                     .first().$("button").click();
         });
 
-        step("Check that vacancies ", () -> {
+        step("Check that vacancies have not '" + firstSpecialisation + "' tag", () -> {
             $$("job-card__speciality-wrapper").filter(text(firstSpecialisation)).shouldHaveSize(0);
         });
     }
