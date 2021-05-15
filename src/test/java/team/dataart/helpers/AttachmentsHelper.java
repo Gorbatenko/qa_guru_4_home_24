@@ -53,7 +53,9 @@ public class AttachmentsHelper {
                     e.printStackTrace();
                 }
             }
-            addAttachment("Video", "video/mp4", videoInputStream, "mp4");
+            if (videoInputStream != null) {
+                addAttachment("Video", "video/mp4", videoInputStream, "mp4");
+            }
         }
     }
 
