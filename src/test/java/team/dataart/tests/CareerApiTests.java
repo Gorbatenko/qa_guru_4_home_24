@@ -10,9 +10,14 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import team.dataart.utils.JiraIssue;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static io.qameta.allure.Allure.parameter;
 import static io.restassured.RestAssured.given;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.containsStringIgnoringCase;
 import static team.dataart.api.LogFilter.filters;
 
 @Tag("api")
@@ -33,7 +38,7 @@ public class CareerApiTests {
         parameter("path", path);
         parameter("value", value);
 
-        given()
+        Object response = given()
                 .filter(filters().withCustomTemplates())
                 .log().uri()
                 .contentType("application/x-www-form-urlencoded; charset=UTF-8")
@@ -43,7 +48,11 @@ public class CareerApiTests {
                 .then()
                 .statusCode(200)
                 .log().body()
-                .assertThat()
-                .body(path, containsString(value));
+                .extract()
+                .body()
+                .jsonPath()
+                .get(path);
+
+        assertThat(response.toString()).contains(value);
     }
 }
