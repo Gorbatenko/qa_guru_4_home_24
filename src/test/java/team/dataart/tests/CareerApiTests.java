@@ -8,6 +8,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
+import team.dataart.utils.JiraIssue;
 
 import static io.qameta.allure.Allure.parameter;
 import static io.restassured.RestAssured.given;
@@ -15,6 +16,7 @@ import static org.hamcrest.Matchers.containsString;
 import static team.dataart.api.LogFilter.filters;
 
 @Tag("api")
+@JiraIssue("QC3-39")
 @Feature("Vacancy api tests")
 public class CareerApiTests {
 

@@ -10,6 +10,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import team.dataart.utils.JiraIssue;
 
 import java.util.List;
 
@@ -20,6 +21,7 @@ import static team.dataart.tests.TestData.getWebUrl;
 import static team.dataart.utils.Randomizer.randomValuesFromVariant;
 
 @Tag("ui")
+@JiraIssue("QC3-39")
 @Owner("GorbatenkoVA")
 @Feature("Career page tests")
 public class CareerPageTest extends TestBase {

@@ -4,3 +4,7 @@ https://allure.autotests.cloud/project/180/dashboards
 
 `gradle clean test`
 
+видосик сверху
+в джире сделать цветные статусы
+
+https://jira.autotests.cloud/browse/QC3-39

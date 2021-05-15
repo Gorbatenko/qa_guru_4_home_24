@@ -8,6 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import team.dataart.utils.JiraIssue;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -17,6 +18,7 @@ import static team.dataart.tests.TestData.getWebUrl;
 import static team.dataart.utils.Randomizer.randomValueFromVariant;
 
 @Tag("ui")
+@JiraIssue("QC3-39")
 @Owner("GorbatenkoVA")
 @Feature("Main page tests")
 public class MainPageTests extends TestBase {
@@ -103,7 +105,8 @@ public class MainPageTests extends TestBase {
         step("Check default text", () -> {
             SelenideElement errorMessage = $(".vacanciesWidget__error");
             errorMessage.shouldHave(text("По вашему запросу ничего не найдено"));
-            errorMessage.shouldHave(text("Убедитесь, что все слова написаны без ошибок, или попробуйте использовать другие ключевые слова"));
+            errorMessage.shouldHave(text("Убедитесь, что все слова написаны без ошибок, " +
+                    "или попробуйте использовать другие ключевые слова"));
         });
     }
 }
