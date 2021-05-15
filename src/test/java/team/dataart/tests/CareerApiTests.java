@@ -31,9 +31,9 @@ public class CareerApiTests {
         RestAssured.registerParser("text/plain", Parser.JSON);
     }
 
-    @ParameterizedTest(name = "getSectionTags contains tag {value}")
+    @ParameterizedTest
     @CsvFileSource(resources = "/csv/vacancySectionTags.csv", numLinesToSkip = 1)
-    @DisplayName("getSectionTags contains tag {value}")
+    @DisplayName("getSectionTags contains {value}")
     void checkTechnologyTitles(String path, String value) {
         parameter("path", path);
         parameter("value", value);
