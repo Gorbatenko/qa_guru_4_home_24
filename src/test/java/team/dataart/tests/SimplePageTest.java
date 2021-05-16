@@ -1,6 +1,5 @@
 package team.dataart.tests;
 
-import com.codeborne.selenide.ElementsCollection;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import jdk.nashorn.internal.ir.annotations.Ignore;
@@ -10,13 +9,8 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import team.dataart.utils.JiraIssue;
 
-import java.util.List;
-
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.*;
-import static io.qameta.allure.Allure.step;
-import static team.dataart.tests.TestData.getWebUrl;
-import static team.dataart.utils.Randomizer.randomValuesFromVariant;
+import static com.codeborne.selenide.Selenide.$;
 
 @Tag("ui")
 @JiraIssue("QC3-39")

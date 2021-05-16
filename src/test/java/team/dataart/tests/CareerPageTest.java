@@ -1,12 +1,10 @@
 package team.dataart.tests;
 
-import com.codeborne.selenide.CollectionCondition;
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
-import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
-import jdk.nashorn.internal.ir.annotations.Ignore;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -15,9 +13,11 @@ import team.dataart.utils.JiraIssue;
 
 import java.util.List;
 
-import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
+import static io.qameta.allure.SeverityLevel.*;
+import static io.qameta.allure.SeverityLevel.MINOR;
 import static team.dataart.tests.TestData.getWebUrl;
 import static team.dataart.utils.Randomizer.randomValuesFromVariant;
 
@@ -35,6 +35,7 @@ public class CareerPageTest extends TestBase {
     }
 
     @Test
+    @Severity(CRITICAL)
     @DisplayName("Filter vacancies by relocate is work")
     void checkVacancyRelocateFilter() {
         step("Select relocate checkbox", () -> {
@@ -49,6 +50,7 @@ public class CareerPageTest extends TestBase {
     }
 
     @Test
+    @Severity(BLOCKER)
     @DisplayName("Filter vacancies by remote is work")
     void checkVacancyRemoteFilter() {
         step("Select remote checkbox", () -> {
@@ -63,6 +65,7 @@ public class CareerPageTest extends TestBase {
     }
 
     @Test
+    @Severity(BLOCKER)
     @DisplayName("When uncheck filter vacancies list autoupdated")
     void checkWhenFilterUncheckedThenVacanciesAutoupdated() {
         List<String> randomSpecialisations = randomValuesFromVariant(".NET", "QA", "JavaScript", "Java",
