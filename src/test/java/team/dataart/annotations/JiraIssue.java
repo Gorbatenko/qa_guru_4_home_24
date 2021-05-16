@@ -1,4 +1,4 @@
-package team.dataart.utils;
+package team.dataart.annotations;
 
 import io.qameta.allure.LabelAnnotation;
 

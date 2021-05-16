@@ -4,12 +4,11 @@ import com.codeborne.selenide.ElementsCollection;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import team.dataart.utils.JiraIssue;
+import team.dataart.annotations.JiraIssue;
 
 import java.util.List;
 
@@ -17,7 +16,6 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static io.qameta.allure.SeverityLevel.*;
-import static io.qameta.allure.SeverityLevel.MINOR;
 import static team.dataart.tests.TestData.getWebUrl;
 import static team.dataart.utils.Randomizer.randomValuesFromVariant;
 

@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
-import team.dataart.utils.JiraIssue;
+import team.dataart.annotations.JiraIssue;
 
 import static io.qameta.allure.Allure.parameter;
 import static io.qameta.allure.SeverityLevel.MINOR;
