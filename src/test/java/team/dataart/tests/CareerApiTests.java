@@ -14,7 +14,10 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import team.dataart.annotations.JiraIssue;
 
+import java.util.List;
+
 import static io.qameta.allure.Allure.parameter;
+import static io.qameta.allure.Allure.step;
 import static io.qameta.allure.SeverityLevel.MINOR;
 import static io.restassured.RestAssured.given;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -54,14 +57,64 @@ public class CareerApiTests {
                 .jsonPath()
                 .get(path);
 
-        assertThat(response.toString()).contains(value);
+        step("Check that Technology contains " + value, () -> {
+            assertThat(response.toString()).contains(value);
+        });
     }
 
     @Test
     @AllureId("2804")
     @Severity(MINOR)
-    @DisplayName("getSectionTags contains Location")
-    void checkLocationTitles() {
+    @DisplayName("GetCmsNews contains Location")
+    void checkCmsNewsTitles() {
+        List<String> response = given()
+                .filter(filters().withCustomTemplates())
+                .log().uri()
+                .contentType("application/x-www-form-urlencoded; charset=UTF-8")
+                .formParam("count", "2")
+                .when()
+                .get("/ajax/GetCmsNews")
+                .then()
+                .statusCode(200)
+                .log().body()
+                .extract()
+                .body()
+                .jsonPath()
+                .get("items.title");
 
+        step("Check items size", () -> {
+            assertThat(response).hasSize(2);
+        });
+        step("Check that titles not empty", () -> {
+            assertThat(response).isNotEmpty();
+        });
+    }
+
+    @Test
+    @Severity(MINOR)
+    @DisplayName("GetCompanyFacts contains 3 facts")
+    void checkCompanyFactsTitles() {
+        List<String> response = given()
+                .filter(filters().withCustomTemplates())
+                .log().uri()
+                .contentType("application/x-www-form-urlencoded; charset=UTF-8")
+                .when()
+                .get("/ajax/GetCompanyFacts")
+                .then()
+                .statusCode(200)
+                .log().body()
+                .extract()
+                .body()
+                .jsonPath()
+                .get("items.factHeader");
+
+        step("Check items size", () -> {
+            assertThat(response).hasSize(3);
+        });
+        step("Check titles", () -> {
+            assertThat(response).contains("Общее количество специалистов DataArt");
+            assertThat(response).contains("Составил оборот DataArt в 2020 году");
+            assertThat(response).contains("Реализованных проектов");
+        });
     }
 }
