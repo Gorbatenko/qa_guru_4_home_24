@@ -1,24 +1,24 @@
 # Стек технологий
 ## Тесты
-![screenshot](readmeResources/java.png)
-![screenshot](readmeResources/Gradle.png)
-![screenshot](readmeResources/JUnit5.png)
-![screenshot](readmeResources/Selenide.png)
-![screenshot](readmeResources/RestAssured.png)
-![screenshot](readmeResources/AllureReport.png)
-![screenshot](readmeResources/Github.png)
+![Java](readmeResources/Java.png)
+![Gradle](readmeResources/Gradle.png)
+![JUnit5](readmeResources/JUnit5.png)
+![Selenide](readmeResources/Selenide.png)
+![RestAssured](readmeResources/RestAssured.png)
+![AllureReport](readmeResources/AllureReport.png)
+![Github](readmeResources/Github.png)
 ## Инфраструктура
-![screenshot](readmeResources/AllureTestOps.png)
-![screenshot](readmeResources/Jenkins.png)
-![screenshot](readmeResources/Selenoid.png)
+![AllureTestOps](readmeResources/AllureTestOps.png)
+![Jenkins](readmeResources/Jenkins.png)
+![Selenoid](readmeResources/Selenoid.png)
 ## Интеграция
-![screenshot](readmeResources/Jira.png)
-![screenshot](readmeResources/Telegram.png)
+![Jira](readmeResources/Jira.png)
+![Telegram](readmeResources/Telegram.png)
 
 ---------------
 
 # Видео-пример прохождения теста
-![screenshot](readmeResources/AllInOne.gif)
+![AllInOne](readmeResources/AllInOne.gif)
 
 ---------------
 
