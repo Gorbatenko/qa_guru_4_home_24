@@ -1,5 +1,5 @@
-#Стек технологий
-##Тесты
+#Стек технологий#
+##Тесты##
 ![](readmeResources/java.png)
 ![](readmeResources/Gradle.png)
 ![](readmeResources/JUnit5.png)
@@ -7,24 +7,24 @@
 ![](readmeResources/RestAssured.png)
 ![](readmeResources/AllureReport.png)
 ![](readmeResources/Github.png)
-##Инфраструктура
+##Инфраструктура##
 ![](readmeResources/AllureTestOps.png)
 ![](readmeResources/Jenkins.png)
 ![](readmeResources/Selenoid.png)
-##Интеграция
+##Интеграция##
 ![](readmeResources/Jira.png)
 ![](readmeResources/Telegram.png)
 
 ---------------
 
-#Видео-пример прохождения теста
+#Видео-пример прохождения теста#
 ![](readmeResources/AllInOne.gif)
 
 ---------------
 
-##Процесс тестирования
+##Процесс тестирования##
 
-###[Github repository](https://github.com/Gorbatenko/qa_guru_4_home_24 "Github repository")
+###[Github repository](https://github.com/Gorbatenko/qa_guru_4_home_24 "Github repository")###
 
 ---------------
 - [x] Весь код проекта.
