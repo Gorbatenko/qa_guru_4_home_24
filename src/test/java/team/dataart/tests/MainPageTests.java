@@ -3,13 +3,13 @@ package team.dataart.tests;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Feature;
-import io.qameta.allure.Issue;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import team.dataart.annotations.JiraIssue;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -20,7 +20,7 @@ import static team.dataart.tests.TestData.getWebUrl;
 import static team.dataart.utils.Randomizer.randomValueFromVariant;
 
 @Tag("ui")
-@Issue("QC3-39")
+@JiraIssue("QC3-39")
 @Owner("GorbatenkoVA")
 @Feature("Main page tests")
 public class MainPageTests extends TestBase {
@@ -34,7 +34,7 @@ public class MainPageTests extends TestBase {
     }
 
     @Test
-    @DisplayName("Filter vacancies by technology is work")
+    @DisplayName("Filter vacancies by technology")
     void checkTechnologyFilter() {
         String technology = randomValueFromVariant(".Net", "QA", "JavaScript", "Java", "DevOps", "Ruby");
 
@@ -43,14 +43,14 @@ public class MainPageTests extends TestBase {
             $$(".isOpen .customSelect__option").findBy(text(technology)).click();
         });
 
-        step("Check vacancy technology", () -> {
+        step("Check that all vacancies has technology " + technology, () -> {
             ElementsCollection allVacancies = $$(".vacanciesWidget__list-item");
             allVacancies.filter(text(technology)).shouldHaveSize(allVacancies.size());
         });
     }
 
     @Test
-    @DisplayName("Filter vacancies by industry is work")
+    @DisplayName("Filter vacancies by industry")
     void checkIndustryFilter() {
         String industry = randomValueFromVariant("Интернет вещей", "Медиа и развлечения", "Медицина",
                 "Путешествия", "Ритейл", "Финансы");
@@ -60,14 +60,14 @@ public class MainPageTests extends TestBase {
             $$(".isOpen .customSelect__option").findBy(text(industry)).click();
         });
 
-        step("Check vacancy industry", () -> {
+        step("Check that all vacancies has industry " + industry, () -> {
             ElementsCollection allVacancies = $$(".vacanciesWidget__list-item");
             allVacancies.filter(text(industry)).shouldHaveSize(allVacancies.size());
         });
     }
 
     @Test
-    @DisplayName("Filter vacancies by location is work")
+    @DisplayName("Filter vacancies by location")
     void checkLocationFilter() {
         String location = randomValueFromVariant("София", "Вроцлав", "Remote.RU", "Remote.UA", "Днепр", "Херсон");
 
@@ -76,7 +76,7 @@ public class MainPageTests extends TestBase {
             $$(".isOpen .customSelect__option").findBy(text(location)).click();
         });
 
-        step("Check vacancy location", () -> {
+        step("Check that all vacancies has location " + location, () -> {
             ElementsCollection allVacancies = $$(".vacanciesWidget__list-item");
             allVacancies.filter(text(location)).shouldHaveSize(allVacancies.size());
         });

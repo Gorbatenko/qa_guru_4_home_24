@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+import team.dataart.annotations.JiraIssue;
 
 import java.util.List;
 
@@ -20,7 +21,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static team.dataart.api.LogFilter.filters;
 
 @Tag("api")
-@Issue("QC3-39")
+@JiraIssue("QC3-39")
 @Owner("GorbatenkoVA")
 @Feature("Vacancy api tests")
 public class CareerApiTests {

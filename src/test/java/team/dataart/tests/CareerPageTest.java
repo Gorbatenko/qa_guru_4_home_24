@@ -2,13 +2,13 @@ package team.dataart.tests;
 
 import com.codeborne.selenide.ElementsCollection;
 import io.qameta.allure.Feature;
-import io.qameta.allure.Issue;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import team.dataart.annotations.JiraIssue;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
@@ -18,7 +18,7 @@ import static io.qameta.allure.SeverityLevel.CRITICAL;
 import static team.dataart.tests.TestData.getWebUrl;
 
 @Tag("ui")
-@Issue("QC3-39")
+@JiraIssue("QC3-39")
 @Owner("GorbatenkoVA")
 @Feature("Career page tests")
 public class CareerPageTest extends TestBase {
