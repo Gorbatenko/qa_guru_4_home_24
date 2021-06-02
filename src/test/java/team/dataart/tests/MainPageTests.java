@@ -3,13 +3,13 @@ package team.dataart.tests;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Issue;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import team.dataart.annotations.JiraIssue;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -20,7 +20,7 @@ import static team.dataart.tests.TestData.getWebUrl;
 import static team.dataart.utils.Randomizer.randomValueFromVariant;
 
 @Tag("ui")
-@JiraIssue("QC3-39")
+@Issue("QC3-39")
 @Owner("GorbatenkoVA")
 @Feature("Main page tests")
 public class MainPageTests extends TestBase {
@@ -55,7 +55,7 @@ public class MainPageTests extends TestBase {
         String industry = randomValueFromVariant("Интернет вещей", "Медиа и развлечения", "Медицина",
                 "Путешествия", "Ритейл", "Финансы");
 
-        step("Select industry", () -> {
+        step("Select industry " + industry, () -> {
             $("#customSelect__industry").click();
             $$(".isOpen .customSelect__option").findBy(text(industry)).click();
         });
@@ -71,7 +71,7 @@ public class MainPageTests extends TestBase {
     void checkLocationFilter() {
         String location = randomValueFromVariant("София", "Вроцлав", "Remote.RU", "Remote.UA", "Днепр", "Херсон");
 
-        step("Select location", () -> {
+        step("Select location " + location, () -> {
             $("#customSelect__location").click();
             $$(".isOpen .customSelect__option").findBy(text(location)).click();
         });
@@ -90,17 +90,17 @@ public class MainPageTests extends TestBase {
         String industry = "Ставки и игорный бизнес";
         String location = "Харьков";
 
-        step("Select technology", () -> {
+        step("Select technology " + technology, () -> {
             $("#customSelect__technology").click();
             $$(".isOpen .customSelect__option").findBy(text(technology)).click();
         });
 
-        step("Select industry", () -> {
+        step("Select industry " + industry, () -> {
             $("#customSelect__industry").click();
             $$(".isOpen .customSelect__option").findBy(text(industry)).click();
         });
 
-        step("Select location", () -> {
+        step("Select location " + location, () -> {
             $("#customSelect__location").click();
             $$(".isOpen .customSelect__option").findBy(text(location)).click();
         });

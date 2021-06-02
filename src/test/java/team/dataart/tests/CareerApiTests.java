@@ -1,9 +1,6 @@
 package team.dataart.tests;
 
-import io.qameta.allure.AllureId;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Owner;
-import io.qameta.allure.Severity;
+import io.qameta.allure.*;
 import io.restassured.RestAssured;
 import io.restassured.parsing.Parser;
 import org.junit.jupiter.api.BeforeAll;
@@ -11,8 +8,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvFileSource;
-import team.dataart.annotations.JiraIssue;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.List;
 
@@ -24,7 +20,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static team.dataart.api.LogFilter.filters;
 
 @Tag("api")
-@JiraIssue("QC3-39")
+@Issue("QC3-39")
 @Owner("GorbatenkoVA")
 @Feature("Vacancy api tests")
 public class CareerApiTests {
@@ -36,12 +32,10 @@ public class CareerApiTests {
     }
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/csv/vacancySectionTags.csv", numLinesToSkip = 1)
+    @ValueSource(strings = {"Java", "QA", "JavaScript", "DevOps"})
     @DisplayName("getSectionTags contains Technology")
-    void checkTechnologyTitles(String path, String value) {
-        parameter("path", path);
+    void checkTechnologyTitles(String value) {
         parameter("value", value);
-
         Object response = given()
                 .filter(filters().withCustomTemplates())
                 .log().uri()
@@ -55,7 +49,7 @@ public class CareerApiTests {
                 .extract()
                 .body()
                 .jsonPath()
-                .get(path);
+                .get("technology.title");
 
         step("Check that Technology contains " + value, () -> {
             assertThat(response.toString()).contains(value);

@@ -5,7 +5,7 @@ import org.aeonbits.owner.ConfigFactory;
 
 public class TestData {
     private static TestDataConfig getTestData() {
-        return ConfigFactory.newInstance().create(TestDataConfig.class, System.getProperties());
+        return ConfigFactory.create(TestDataConfig.class);
     }
 
     public static String getWebUrl() {
